@@ -1,0 +1,578 @@
+[2025-05-08 09:54:20] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-08 09:54:20] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-08 09:54:20] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-08 09:54:20] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_bpv63__t
+[2025-05-08 09:54:20] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0 (Macintosh, Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36
+[2025-05-08 09:54:23] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-08 09:54:23] INFO [like_scanner.infra.drivers.savee_driver] Загружено cookies из /Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/savee_state.json: 1 шт.
+[2025-05-08 09:54:30] INFO [like_scanner.infra.drivers.savee_driver] Cookies успешно добавлены в браузер.
+[2025-05-08 09:54:30] INFO [like_scanner.app] Savee driver ready.
+[2025-05-08 09:54:30] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-08 09:54:30] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-08 09:54:39] INFO [cosmos] Existing Cosmos session restored from cookies.
+[2025-05-08 09:54:39] INFO [like_scanner.app] Cosmos driver ready.
+[2025-05-08 10:40:53] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 10:40:53] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 10:40:53] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 0}
+[2025-05-08 10:40:53] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 10:40:53] ERROR [like_scanner.routes] Error during Savee parse continuation: module 'like_scanner.core.models' has no attribute 'SessionTracker'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/api/routes.py", line 106, in parse_savee_continue
+    session_tracker = models.SessionTracker(
+                      ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'like_scanner.core.models' has no attribute 'SessionTracker'
+[2025-05-08 10:40:58] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 10:40:58] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 10:40:58] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 0}
+[2025-05-08 10:40:58] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 10:40:58] ERROR [like_scanner.routes] Error during Savee parse continuation: module 'like_scanner.core.models' has no attribute 'SessionTracker'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/api/routes.py", line 106, in parse_savee_continue
+    session_tracker = models.SessionTracker(
+                      ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'like_scanner.core.models' has no attribute 'SessionTracker'
+[2025-05-08 10:41:04] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 10:41:04] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 10:41:04] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 0}
+[2025-05-08 10:41:04] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 10:41:04] ERROR [like_scanner.routes] Error during Savee parse continuation: module 'like_scanner.core.models' has no attribute 'SessionTracker'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/api/routes.py", line 106, in parse_savee_continue
+    session_tracker = models.SessionTracker(
+                      ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'like_scanner.core.models' has no attribute 'SessionTracker'
+[2025-05-08 11:17:08] INFO [like_scanner.app] Stopping Like-Scanner API...
+[2025-05-08 11:17:08] INFO [like_scanner.app] Closing Savee driver...
+[2025-05-08 11:17:08] WARNING [urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x102ff2c10>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/c86b85af4da99ce8fdbf07df2109e7c7
+[2025-05-08 11:17:08] WARNING [urllib3.connectionpool] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10307ad10>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/c86b85af4da99ce8fdbf07df2109e7c7
+[2025-05-08 11:17:08] WARNING [urllib3.connectionpool] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10307b3d0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/c86b85af4da99ce8fdbf07df2109e7c7
+[2025-05-08 11:17:08] INFO [like_scanner.app] Savee driver closed.
+[2025-05-08 11:17:08] INFO [like_scanner.app] Closing Cosmos driver...
+[2025-05-08 11:17:08] ERROR [like_scanner.app] Error while closing Cosmos driver: 'CosmosDriver' object has no attribute 'quit'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 75, in on_shutdown
+    cosmos.quit()
+    ^^^^^^^^^^^
+AttributeError: 'CosmosDriver' object has no attribute 'quit'
+[2025-05-08 11:21:33] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-08 11:21:33] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-08 11:21:33] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-08 11:21:33] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_wm75_hkq
+[2025-05-08 11:21:33] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0 (Macintosh, Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36
+[2025-05-08 11:21:43] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-08 11:21:43] INFO [like_scanner.infra.drivers.savee_driver] Загружено cookies из /Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/savee_state.json: 1 шт.
+[2025-05-08 11:21:50] INFO [like_scanner.infra.drivers.savee_driver] Cookies успешно добавлены в браузер.
+[2025-05-08 11:21:50] INFO [like_scanner.app] Savee driver ready.
+[2025-05-08 11:21:50] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-08 11:21:50] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-08 11:21:59] INFO [cosmos] Existing Cosmos session restored from cookies.
+[2025-05-08 11:21:59] INFO [like_scanner.app] Cosmos driver ready.
+[2025-05-08 11:22:07] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 11:22:07] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 11:22:07] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 0}
+[2025-05-08 11:22:07] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 11:22:07] ERROR [like_scanner.routes] Error during Savee parse continuation: SessionTracker.__init__() got an unexpected keyword argument 'driver'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/api/routes.py", line 106, in parse_savee_continue
+    session_tracker = models.SessionTracker(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SessionTracker.__init__() got an unexpected keyword argument 'driver'
+[2025-05-08 11:22:12] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 11:22:12] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 11:22:12] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 0}
+[2025-05-08 11:22:12] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 11:22:12] ERROR [like_scanner.routes] Error during Savee parse continuation: SessionTracker.__init__() got an unexpected keyword argument 'driver'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/api/routes.py", line 106, in parse_savee_continue
+    session_tracker = models.SessionTracker(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SessionTracker.__init__() got an unexpected keyword argument 'driver'
+[2025-05-08 11:22:18] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 11:22:18] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 11:22:18] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 0}
+[2025-05-08 11:22:18] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 11:22:18] ERROR [like_scanner.routes] Error during Savee parse continuation: SessionTracker.__init__() got an unexpected keyword argument 'driver'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/api/routes.py", line 106, in parse_savee_continue
+    session_tracker = models.SessionTracker(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SessionTracker.__init__() got an unexpected keyword argument 'driver'
+[2025-05-08 12:12:38] INFO [like_scanner.app] Stopping Like-Scanner API...
+[2025-05-08 12:12:38] INFO [like_scanner.app] Closing Savee driver...
+[2025-05-08 12:12:38] WARNING [urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1028172d0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/7a737ac385b3eb9d89f089f435076dba
+[2025-05-08 12:12:38] WARNING [urllib3.connectionpool] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1028aa010>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/7a737ac385b3eb9d89f089f435076dba
+[2025-05-08 12:12:38] WARNING [urllib3.connectionpool] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1028aa890>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/7a737ac385b3eb9d89f089f435076dba
+[2025-05-08 12:12:38] INFO [like_scanner.app] Savee driver closed.
+[2025-05-08 12:12:38] INFO [like_scanner.app] Closing Cosmos driver...
+[2025-05-08 12:12:38] ERROR [like_scanner.app] Error while closing Cosmos driver: 'CosmosDriver' object has no attribute 'quit'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 75, in on_shutdown
+    cosmos.quit()
+    ^^^^^^^^^^^
+AttributeError: 'CosmosDriver' object has no attribute 'quit'
+[2025-05-08 12:12:48] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-08 12:12:48] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-08 12:12:48] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-08 12:12:48] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_p8illudd
+[2025-05-08 12:12:48] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0 (Macintosh, Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36
+[2025-05-08 12:12:49] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-08 12:12:49] INFO [like_scanner.infra.drivers.savee_driver] Загружено cookies из /Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/savee_state.json: 1 шт.
+[2025-05-08 12:13:01] INFO [like_scanner.infra.drivers.savee_driver] Cookies успешно добавлены в браузер.
+[2025-05-08 12:13:01] INFO [like_scanner.app] Savee driver ready.
+[2025-05-08 12:13:01] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-08 12:13:01] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-08 12:13:20] INFO [cosmos] Existing Cosmos session restored from cookies.
+[2025-05-08 12:13:20] INFO [like_scanner.app] Cosmos driver ready.
+[2025-05-08 13:01:11] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 13:01:11] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 13:01:11] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 0}
+[2025-05-08 13:01:11] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 13:01:11] ERROR [like_scanner.routes] Error during Savee parse continuation: 'SessionTracker' object has no attribute 'continue_parse'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/api/routes.py", line 109, in parse_savee_continue
+    scan_result: models.ScanResult = session_tracker.continue_parse()
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionTracker' object has no attribute 'continue_parse'
+[2025-05-08 13:01:17] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 13:01:17] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 13:01:17] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 0}
+[2025-05-08 13:01:17] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 13:01:17] ERROR [like_scanner.routes] Error during Savee parse continuation: 'SessionTracker' object has no attribute 'continue_parse'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/api/routes.py", line 109, in parse_savee_continue
+    scan_result: models.ScanResult = session_tracker.continue_parse()
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionTracker' object has no attribute 'continue_parse'
+[2025-05-08 13:01:23] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 13:01:23] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 13:01:23] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 0}
+[2025-05-08 13:01:23] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 13:01:23] ERROR [like_scanner.routes] Error during Savee parse continuation: 'SessionTracker' object has no attribute 'continue_parse'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/api/routes.py", line 109, in parse_savee_continue
+    scan_result: models.ScanResult = session_tracker.continue_parse()
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionTracker' object has no attribute 'continue_parse'
+[2025-05-08 13:04:52] INFO [like_scanner.app] Stopping Like-Scanner API...
+[2025-05-08 13:04:52] INFO [like_scanner.app] Closing Savee driver...
+[2025-05-08 13:04:52] WARNING [urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1032d47d0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/0e3a3264df392bf6f5b2264ac53a88e6
+[2025-05-08 13:04:52] WARNING [urllib3.connectionpool] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10335fb10>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/0e3a3264df392bf6f5b2264ac53a88e6
+[2025-05-08 13:04:52] WARNING [urllib3.connectionpool] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x103348790>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/0e3a3264df392bf6f5b2264ac53a88e6
+[2025-05-08 13:04:52] INFO [like_scanner.app] Savee driver closed.
+[2025-05-08 13:04:52] INFO [like_scanner.app] Closing Cosmos driver...
+[2025-05-08 13:04:52] ERROR [like_scanner.app] Error while closing Cosmos driver: 'CosmosDriver' object has no attribute 'quit'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 75, in on_shutdown
+    cosmos.quit()
+    ^^^^^^^^^^^
+AttributeError: 'CosmosDriver' object has no attribute 'quit'
+[2025-05-08 13:05:10] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-08 13:05:10] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-08 13:05:10] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-08 13:05:10] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_qys4zol4
+[2025-05-08 13:05:10] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0 (Macintosh, Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36
+[2025-05-08 13:05:15] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-08 13:05:15] INFO [like_scanner.infra.drivers.savee_driver] Загружено cookies из /Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/savee_state.json: 1 шт.
+[2025-05-08 13:05:26] INFO [like_scanner.infra.drivers.savee_driver] Cookies успешно добавлены в браузер.
+[2025-05-08 13:05:26] INFO [like_scanner.app] Savee driver ready.
+[2025-05-08 13:05:26] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-08 13:05:26] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-08 13:05:40] INFO [cosmos] Existing Cosmos session restored from cookies.
+[2025-05-08 13:05:40] INFO [like_scanner.app] Cosmos driver ready.
+[2025-05-08 13:06:08] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 13:06:08] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 13:06:08] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 0}
+[2025-05-08 13:06:08] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 13:06:08] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 13:06:08] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 13:06:08] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 13:11:07] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 13:11:07] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 13:11:07] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 0}
+[2025-05-08 13:11:07] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 13:11:07] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 13:11:07] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 13:11:07] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 13:12:07] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 13:12:07] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 13:12:07] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 0}
+[2025-05-08 13:12:07] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 13:12:07] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 13:12:07] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 13:12:07] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 13:12:40] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 13:12:40] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 13:12:40] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 0}
+[2025-05-08 13:12:40] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 13:12:40] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 13:12:40] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 13:12:40] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 13:13:11] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 13:13:11] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 13:13:11] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 13:13:11] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 13:13:11] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 13:13:11] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 13:13:11] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 13:13:23] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 13:13:23] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 13:13:23] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 13:13:23] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 13:13:23] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 13:13:23] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 13:13:23] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 13:18:26] INFO [like_scanner.app] Stopping Like-Scanner API...
+[2025-05-08 13:18:26] INFO [like_scanner.app] Closing Savee driver...
+[2025-05-08 13:18:26] WARNING [urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x104cb7250>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/f534cb8f5b75273bd249c3082df6a052
+[2025-05-08 13:18:26] WARNING [urllib3.connectionpool] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x104d43ed0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/f534cb8f5b75273bd249c3082df6a052
+[2025-05-08 13:18:26] WARNING [urllib3.connectionpool] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x104cd83d0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/f534cb8f5b75273bd249c3082df6a052
+[2025-05-08 13:18:26] INFO [like_scanner.app] Savee driver closed.
+[2025-05-08 13:18:26] INFO [like_scanner.app] Closing Cosmos driver...
+[2025-05-08 13:18:26] ERROR [like_scanner.app] Error while closing Cosmos driver: 'CosmosDriver' object has no attribute 'quit'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 75, in on_shutdown
+    cosmos.quit()
+    ^^^^^^^^^^^
+AttributeError: 'CosmosDriver' object has no attribute 'quit'
+[2025-05-08 13:18:37] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-08 13:18:37] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-08 13:18:37] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-08 13:18:37] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_t_23mdhj
+[2025-05-08 13:18:37] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0 (Macintosh, Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36
+[2025-05-08 13:18:38] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-08 13:18:38] INFO [like_scanner.infra.drivers.savee_driver] Загружено cookies из /Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/savee_state.json: 1 шт.
+[2025-05-08 13:18:53] INFO [like_scanner.infra.drivers.savee_driver] Cookies успешно добавлены в браузер.
+[2025-05-08 13:18:53] INFO [like_scanner.app] Savee driver ready.
+[2025-05-08 13:18:53] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-08 13:18:53] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-08 13:19:07] INFO [cosmos] Existing Cosmos session restored from cookies.
+[2025-05-08 13:19:07] INFO [like_scanner.app] Cosmos driver ready.
+[2025-05-08 13:20:50] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 13:20:50] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 13:20:50] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 13:20:50] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 13:20:50] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 13:20:50] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 13:20:50] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 13:21:04] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 13:21:04] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 13:21:04] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 13:21:04] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 13:21:04] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 13:21:04] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 13:21:04] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 13:22:42] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 13:22:42] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 13:22:42] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 13:22:42] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 13:22:42] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 13:22:42] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 13:22:42] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 13:23:09] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 13:23:09] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 13:23:09] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 13:23:09] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 13:23:09] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 13:23:09] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 13:23:09] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 13:24:21] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 13:24:21] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 13:24:21] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 13:24:21] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 13:24:21] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 13:24:21] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 13:24:21] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 13:24:31] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 13:24:31] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 13:24:31] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 13:24:31] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 13:24:31] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 13:24:31] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 13:24:31] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 16:20:31] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 16:20:31] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 16:20:31] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 16:20:31] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 16:20:31] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 16:20:31] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 16:20:31] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 16:21:31] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 16:21:31] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 16:22:10] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 16:22:10] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 16:22:10] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 16:22:10] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 16:22:10] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 16:22:10] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 16:22:10] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 16:23:11] INFO [like_scanner.app] Stopping Like-Scanner API...
+[2025-05-08 16:23:11] INFO [like_scanner.app] Closing Savee driver...
+[2025-05-08 16:23:11] WARNING [urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x102f56e10>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/0e0eb438c1d22639d28ab5b76eaf80df
+[2025-05-08 16:23:11] WARNING [urllib3.connectionpool] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x102f7af50>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/0e0eb438c1d22639d28ab5b76eaf80df
+[2025-05-08 16:23:11] WARNING [urllib3.connectionpool] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x102f7bbd0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/0e0eb438c1d22639d28ab5b76eaf80df
+[2025-05-08 16:23:11] INFO [like_scanner.app] Savee driver closed.
+[2025-05-08 16:23:11] INFO [like_scanner.app] Closing Cosmos driver...
+[2025-05-08 16:23:11] ERROR [like_scanner.app] Error while closing Cosmos driver: 'CosmosDriver' object has no attribute 'quit'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 75, in on_shutdown
+    cosmos.quit()
+    ^^^^^^^^^^^
+AttributeError: 'CosmosDriver' object has no attribute 'quit'
+[2025-05-08 16:23:18] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-08 16:23:18] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-08 16:23:18] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-08 16:23:18] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_8zr9zcx7
+[2025-05-08 16:23:18] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0 (Macintosh, Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36
+[2025-05-08 16:23:40] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-08 16:23:40] INFO [like_scanner.infra.drivers.savee_driver] Загружено cookies из /Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/savee_state.json: 1 шт.
+[2025-05-08 16:23:47] INFO [like_scanner.infra.drivers.savee_driver] Cookies успешно добавлены в браузер.
+[2025-05-08 16:23:47] INFO [like_scanner.app] Savee driver ready.
+[2025-05-08 16:23:47] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-08 16:23:47] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-08 16:24:00] INFO [cosmos] Existing Cosmos session restored from cookies.
+[2025-05-08 16:24:00] INFO [like_scanner.app] Cosmos driver ready.
+[2025-05-08 16:24:06] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 16:24:06] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 16:24:06] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 16:24:06] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 16:24:06] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 16:24:06] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 16:24:06] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 16:34:46] INFO [like_scanner.app] Stopping Like-Scanner API...
+[2025-05-08 16:34:46] INFO [like_scanner.app] Closing Savee driver...
+[2025-05-08 16:34:46] WARNING [urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10796afd0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/ff2d5fbff61f23d0ca4c51e732cf91fb
+[2025-05-08 16:34:46] WARNING [urllib3.connectionpool] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1079fe2d0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/ff2d5fbff61f23d0ca4c51e732cf91fb
+[2025-05-08 16:34:46] WARNING [urllib3.connectionpool] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1079fed90>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/ff2d5fbff61f23d0ca4c51e732cf91fb
+[2025-05-08 16:34:46] INFO [like_scanner.app] Savee driver closed.
+[2025-05-08 16:34:46] INFO [like_scanner.app] Closing Cosmos driver...
+[2025-05-08 16:34:46] ERROR [like_scanner.app] Error while closing Cosmos driver: 'CosmosDriver' object has no attribute 'quit'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 75, in on_shutdown
+    cosmos.quit()
+    ^^^^^^^^^^^
+AttributeError: 'CosmosDriver' object has no attribute 'quit'
+[2025-05-08 16:35:00] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-08 16:35:00] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-08 16:35:00] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-08 16:35:00] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_k7ec9ju9
+[2025-05-08 16:35:00] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0 (Macintosh, Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36
+[2025-05-08 16:35:01] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-08 16:35:01] INFO [like_scanner.infra.drivers.savee_driver] Загружено cookies из /Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/savee_state.json: 1 шт.
+[2025-05-08 16:35:07] INFO [like_scanner.infra.drivers.savee_driver] Cookies успешно добавлены в браузер.
+[2025-05-08 16:35:07] INFO [like_scanner.app] Savee driver ready.
+[2025-05-08 16:35:07] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-08 16:35:07] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-08 16:35:16] INFO [cosmos] Existing Cosmos session restored from cookies.
+[2025-05-08 16:35:16] INFO [like_scanner.app] Cosmos driver ready.
+[2025-05-08 16:35:29] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 16:35:29] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 16:35:29] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 16:35:29] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 16:35:29] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 16:35:29] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 16:35:29] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 16:49:21] INFO [like_scanner.app] Stopping Like-Scanner API...
+[2025-05-08 16:49:21] INFO [like_scanner.app] Closing Savee driver...
+[2025-05-08 16:49:21] WARNING [urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x102853290>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/a28922e9ac2c85196330c6f8d1372cb5
+[2025-05-08 16:49:21] WARNING [urllib3.connectionpool] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1028de890>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/a28922e9ac2c85196330c6f8d1372cb5
+[2025-05-08 16:49:21] WARNING [urllib3.connectionpool] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1028def10>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/a28922e9ac2c85196330c6f8d1372cb5
+[2025-05-08 16:49:21] INFO [like_scanner.app] Savee driver closed.
+[2025-05-08 16:49:21] INFO [like_scanner.app] Closing Cosmos driver...
+[2025-05-08 16:49:21] ERROR [like_scanner.app] Error while closing Cosmos driver: 'CosmosDriver' object has no attribute 'quit'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 75, in on_shutdown
+    cosmos.quit()
+    ^^^^^^^^^^^
+AttributeError: 'CosmosDriver' object has no attribute 'quit'
+[2025-05-08 16:49:27] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-08 16:49:27] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-08 16:49:27] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-08 16:49:27] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_73fwhoo1
+[2025-05-08 16:49:27] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0 (Macintosh, Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36
+[2025-05-08 16:49:28] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-08 16:49:28] INFO [like_scanner.infra.drivers.savee_driver] Загружено cookies из /Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/savee_state.json: 1 шт.
+[2025-05-08 16:49:34] INFO [like_scanner.infra.drivers.savee_driver] Cookies успешно добавлены в браузер.
+[2025-05-08 16:49:34] INFO [like_scanner.app] Savee driver ready.
+[2025-05-08 16:49:34] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-08 16:49:35] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-08 16:49:47] INFO [cosmos] Existing Cosmos session restored from cookies.
+[2025-05-08 16:49:47] INFO [like_scanner.app] Cosmos driver ready.
+[2025-05-08 16:49:57] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 16:49:57] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 16:49:57] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 16:49:57] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 16:49:57] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 16:49:57] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 16:49:57] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 16:51:29] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 16:51:29] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 16:51:29] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 16:51:29] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 16:51:29] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 16:51:29] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 16:51:29] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 16:59:53] INFO [like_scanner.app] Stopping Like-Scanner API...
+[2025-05-08 16:59:53] INFO [like_scanner.app] Closing Savee driver...
+[2025-05-08 16:59:53] WARNING [urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x103615810>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/2b245dc630153629513d092ea069829a
+[2025-05-08 16:59:53] WARNING [urllib3.connectionpool] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x103738d10>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/2b245dc630153629513d092ea069829a
+[2025-05-08 16:59:53] WARNING [urllib3.connectionpool] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x103739790>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/2b245dc630153629513d092ea069829a
+[2025-05-08 16:59:53] INFO [like_scanner.app] Savee driver closed.
+[2025-05-08 16:59:53] INFO [like_scanner.app] Closing Cosmos driver...
+[2025-05-08 16:59:53] ERROR [like_scanner.app] Error while closing Cosmos driver: 'CosmosDriver' object has no attribute 'quit'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 75, in on_shutdown
+    cosmos.quit()
+    ^^^^^^^^^^^
+AttributeError: 'CosmosDriver' object has no attribute 'quit'
+[2025-05-08 17:00:01] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-08 17:00:01] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-08 17:00:01] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-08 17:00:01] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_u200p5uu
+[2025-05-08 17:00:01] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0 (Macintosh, Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36
+[2025-05-08 17:00:02] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-08 17:00:02] INFO [like_scanner.infra.drivers.savee_driver] Загружено cookies из /Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/savee_state.json: 1 шт.
+[2025-05-08 17:00:06] INFO [like_scanner.infra.drivers.savee_driver] Cookies успешно добавлены в браузер.
+[2025-05-08 17:00:06] INFO [like_scanner.app] Savee driver ready.
+[2025-05-08 17:00:06] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-08 17:00:07] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-08 17:00:15] INFO [cosmos] Existing Cosmos session restored from cookies.
+[2025-05-08 17:00:15] INFO [like_scanner.app] Cosmos driver ready.
+[2025-05-08 17:00:18] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 17:00:18] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 17:00:18] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 17:00:18] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 17:00:18] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 17:00:18] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 17:00:18] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 17:00:31] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 17:00:31] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 17:00:31] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 17:00:31] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 17:00:31] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 17:00:31] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 17:00:31] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 17:12:44] INFO [like_scanner.app] Stopping Like-Scanner API...
+[2025-05-08 17:12:44] INFO [like_scanner.app] Closing Savee driver...
+[2025-05-08 17:12:44] WARNING [urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x105103410>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/825c6d8b93aac5eec23c374feb707f18
+[2025-05-08 17:12:44] WARNING [urllib3.connectionpool] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10518b9d0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/825c6d8b93aac5eec23c374feb707f18
+[2025-05-08 17:12:44] WARNING [urllib3.connectionpool] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x105103e90>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/825c6d8b93aac5eec23c374feb707f18
+[2025-05-08 17:12:44] INFO [like_scanner.app] Savee driver closed.
+[2025-05-08 17:12:44] INFO [like_scanner.app] Closing Cosmos driver...
+[2025-05-08 17:12:44] ERROR [like_scanner.app] Error while closing Cosmos driver: 'CosmosDriver' object has no attribute 'quit'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 75, in on_shutdown
+    cosmos.quit()
+    ^^^^^^^^^^^
+AttributeError: 'CosmosDriver' object has no attribute 'quit'
+[2025-05-08 17:12:51] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-08 17:12:51] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-08 17:12:51] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-08 17:12:51] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_cw0865or
+[2025-05-08 17:12:51] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0 (Macintosh, Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36
+[2025-05-08 17:12:52] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-08 17:12:52] INFO [like_scanner.infra.drivers.savee_driver] Загружено cookies из /Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/savee_state.json: 1 шт.
+[2025-05-08 17:12:56] INFO [like_scanner.infra.drivers.savee_driver] Cookies успешно добавлены в браузер.
+[2025-05-08 17:12:56] INFO [like_scanner.app] Savee driver ready.
+[2025-05-08 17:12:56] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-08 17:12:57] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-08 17:13:06] INFO [cosmos] Existing Cosmos session restored from cookies.
+[2025-05-08 17:13:06] INFO [like_scanner.app] Cosmos driver ready.
+[2025-05-08 17:13:15] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 17:13:15] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 17:13:15] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 17:13:15] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 17:13:15] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 17:13:15] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 17:13:15] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 17:13:37] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 17:13:37] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 17:13:37] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 0}
+[2025-05-08 17:13:37] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 17:13:37] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 17:13:37] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 17:13:37] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 17:13:53] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 17:13:53] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 17:13:53] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 17:13:53] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 17:13:53] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 17:13:53] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 17:13:53] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 17:14:11] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 17:14:11] INFO [like_scanner.dependencies] Using Settings from config.py
+[2025-05-08 17:14:11] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 3}
+[2025-05-08 17:14:11] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation...
+[2025-05-08 17:14:11] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=1 fails=1
+[2025-05-08 17:14:11] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=1
+[2025-05-08 17:14:11] INFO [like_scanner.routes] ▶ Savee parsing continued successfully, returning results.
+[2025-05-08 17:29:58] INFO [like_scanner.app] Stopping Like-Scanner API...
+[2025-05-08 17:29:58] INFO [like_scanner.app] Closing Savee driver...
+[2025-05-08 17:29:58] WARNING [urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x104fd70d0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/6e11d1a77de2e11d00ad76beddead3ef
+[2025-05-08 17:29:58] WARNING [urllib3.connectionpool] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x105062dd0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/6e11d1a77de2e11d00ad76beddead3ef
+[2025-05-08 17:29:58] WARNING [urllib3.connectionpool] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x105063610>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/6e11d1a77de2e11d00ad76beddead3ef
+[2025-05-08 17:29:58] INFO [like_scanner.app] Savee driver closed.
+[2025-05-08 17:29:58] INFO [like_scanner.app] Closing Cosmos driver...
+[2025-05-08 17:29:58] ERROR [like_scanner.app] Error while closing Cosmos driver: 'CosmosDriver' object has no attribute 'quit'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 75, in on_shutdown
+    cosmos.quit()
+    ^^^^^^^^^^^
+AttributeError: 'CosmosDriver' object has no attribute 'quit'
+[2025-05-08 17:30:04] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-08 17:30:04] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-08 17:30:04] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-08 17:30:04] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_4mf_oq_r
+[2025-05-08 17:30:04] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0 (Macintosh, Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36
+[2025-05-08 17:30:12] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-08 17:30:12] INFO [like_scanner.infra.drivers.savee_driver] Загружено cookies из /Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/savee_state.json: 1 шт.
+[2025-05-08 17:30:15] INFO [like_scanner.infra.drivers.savee_driver] Cookies успешно добавлены в браузер.
+[2025-05-08 17:30:15] INFO [like_scanner.app] Savee driver ready.
+[2025-05-08 17:30:15] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-08 17:30:16] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-08 17:30:27] INFO [cosmos] Existing Cosmos session restored from cookies.
+[2025-05-08 17:30:27] INFO [like_scanner.app] Cosmos driver ready.
+[2025-05-08 17:33:49] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 17:33:49] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 1}
+[2025-05-08 17:33:49] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation…
+[2025-05-08 17:33:49] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=2 fails=1
+[2025-05-08 17:33:50] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=2
+[2025-05-08 17:36:56] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 17:36:56] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 2}
+[2025-05-08 17:36:56] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation…
+[2025-05-08 17:36:56] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=3 fails=1
+[2025-05-08 17:36:56] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=3
+[2025-05-08 17:37:11] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 17:37:11] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 3}
+[2025-05-08 17:37:11] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation…
+[2025-05-08 17:37:11] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=4 fails=1
+[2025-05-08 17:37:11] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=4
+[2025-05-08 17:40:15] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 17:40:15] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 4}
+[2025-05-08 17:40:15] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation…
+[2025-05-08 17:40:15] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=5 fails=1
+[2025-05-08 17:40:15] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=5
+[2025-05-08 17:55:20] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 17:55:20] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 5}
+[2025-05-08 17:55:20] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation…
+[2025-05-08 17:55:20] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=6 fails=1
+[2025-05-08 17:55:20] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=6
+[2025-05-08 18:10:14] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 18:10:14] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 6}
+[2025-05-08 18:10:14] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation…
+[2025-05-08 18:10:14] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=7 fails=1
+[2025-05-08 18:10:14] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=7
+[2025-05-08 18:25:14] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 18:25:14] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 7}
+[2025-05-08 18:25:14] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation…
+[2025-05-08 18:25:14] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=8 fails=1
+[2025-05-08 18:25:14] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=8
+[2025-05-08 18:40:19] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 18:40:19] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 8}
+[2025-05-08 18:40:19] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation…
+[2025-05-08 18:40:19] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=9 fails=1
+[2025-05-08 18:40:19] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=9
+[2025-05-08 18:55:15] INFO [like_scanner.dependencies] Using Savee driver from app.state
+[2025-05-08 18:55:15] INFO [like_scanner.schemas] Инициализирован SaveeContinueRequest с данными: {'next_index': 9}
+[2025-05-08 18:55:15] INFO [like_scanner.routes] ▶ Continuing Savee parsing operation…
+[2025-05-08 18:55:15] DEBUG [like_scanner.models] SessionTracker.miss() → next_index=10 fails=1
+[2025-05-08 18:55:15] INFO [like_scanner.models] ScanResult hit=False  saves=—  next_index=10

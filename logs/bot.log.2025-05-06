@@ -1,0 +1,58 @@
+[2025-05-06 11:21:53] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-06 11:21:53] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-06 11:21:53] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-06 11:21:53] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_1v_rtsr_
+[2025-05-06 11:21:53] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0 (Macintosh, Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36
+[2025-05-06 11:21:58] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-06 11:21:58] INFO [like_scanner.infra.drivers.savee_driver] Загружено cookies из /Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/savee_state.json: 1 шт.
+[2025-05-06 11:22:05] INFO [like_scanner.infra.drivers.savee_driver] Cookies успешно добавлены в браузер.
+[2025-05-06 11:22:05] INFO [like_scanner.app] Savee driver ready.
+[2025-05-06 11:22:05] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-06 11:22:06] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-06 11:22:15] INFO [cosmos] Existing Cosmos session restored from cookies.
+[2025-05-06 11:22:15] INFO [like_scanner.app] Cosmos driver ready.
+[2025-05-06 12:08:38] ERROR [like_scanner.dependencies] Savee driver not found in app.state
+[2025-05-06 12:08:43] ERROR [like_scanner.dependencies] Savee driver not found in app.state
+[2025-05-06 12:08:49] ERROR [like_scanner.dependencies] Savee driver not found in app.state
+[2025-05-06 12:09:17] INFO [like_scanner.app] Stopping Like-Scanner API...
+[2025-05-06 12:09:17] INFO [like_scanner.app] Closing Savee driver...
+[2025-05-06 12:09:17] WARNING [urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10296d8d0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/1cea9bf11998cb77d77f12baf7cd2a61
+[2025-05-06 12:09:17] WARNING [urllib3.connectionpool] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x102a0ec50>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/1cea9bf11998cb77d77f12baf7cd2a61
+[2025-05-06 12:09:17] WARNING [urllib3.connectionpool] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x102a0f310>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/1cea9bf11998cb77d77f12baf7cd2a61
+[2025-05-06 12:09:17] INFO [like_scanner.app] Savee driver closed.
+[2025-05-06 12:09:17] INFO [like_scanner.app] Closing Cosmos driver...
+[2025-05-06 12:09:17] ERROR [like_scanner.app] Error while closing Cosmos driver: 'CosmosDriver' object has no attribute 'quit'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 75, in on_shutdown
+    cosmos.quit()
+    ^^^^^^^^^^^
+AttributeError: 'CosmosDriver' object has no attribute 'quit'
+[2025-05-06 12:10:00] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-06 12:10:00] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-06 12:10:00] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-06 12:10:00] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_cpubum_s
+[2025-05-06 12:10:00] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0 (Macintosh, Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36
+[2025-05-06 12:10:02] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-06 12:10:02] INFO [like_scanner.infra.drivers.savee_driver] Загружено cookies из /Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/savee_state.json: 1 шт.
+[2025-05-06 12:10:08] INFO [like_scanner.infra.drivers.savee_driver] Cookies успешно добавлены в браузер.
+[2025-05-06 12:10:08] INFO [like_scanner.app] Savee driver ready.
+[2025-05-06 12:10:08] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-06 12:10:09] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-06 12:10:18] INFO [cosmos] Existing Cosmos session restored from cookies.
+[2025-05-06 12:10:18] INFO [like_scanner.app] Cosmos driver ready.
+[2025-05-06 12:10:30] ERROR [like_scanner.dependencies] Savee driver not found in app.state
+[2025-05-06 12:10:35] ERROR [like_scanner.dependencies] Savee driver not found in app.state
+[2025-05-06 12:10:41] ERROR [like_scanner.dependencies] Savee driver not found in app.state
+[2025-05-06 15:16:30] INFO [like_scanner.app] Stopping Like-Scanner API...
+[2025-05-06 15:16:30] INFO [like_scanner.app] Closing Savee driver...
+[2025-05-06 15:16:30] WARNING [urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11086ed90>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/65197f87e72038d6271c61d28c33911c
+[2025-05-06 15:16:30] WARNING [urllib3.connectionpool] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1108fee90>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/65197f87e72038d6271c61d28c33911c
+[2025-05-06 15:16:30] WARNING [urllib3.connectionpool] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1108ff610>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/65197f87e72038d6271c61d28c33911c
+[2025-05-06 15:16:30] INFO [like_scanner.app] Savee driver closed.
+[2025-05-06 15:16:30] INFO [like_scanner.app] Closing Cosmos driver...
+[2025-05-06 15:16:30] ERROR [like_scanner.app] Error while closing Cosmos driver: 'CosmosDriver' object has no attribute 'quit'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 75, in on_shutdown
+    cosmos.quit()
+    ^^^^^^^^^^^
+AttributeError: 'CosmosDriver' object has no attribute 'quit'

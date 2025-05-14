@@ -1,0 +1,43 @@
+# /etc/systemd/system/mybot.service
+# ------------------------------------------------------------
+# Like-Scanner  •  FastAPI + Selenium (Savee & Cosmos)
+# ------------------------------------------------------------
+[Unit]
+Description=Like-Scanner bot (FastAPI)              # Отображается в systemctl
+After=network.target                                # Дождаться сети
+
+# ------------------------------------------------------------
+[Service]
+# --- Базовые настройки --------------------------------------
+Type=simple
+User=www-data                                       # Или другой системный пользователь
+WorkingDirectory=/opt/mybot                         # Корень git-репо (где лежит like_scanner/)
+EnvironmentFile=/opt/mybot/.env                     # .env c токенами, портом и т.д.
+
+# --- Команда запуска ----------------------------------------
+#  • --log-config не нужен, logging_conf.py подключается импортом
+#  • --timeout-keep-alive=30 чтобы долго живущие коннекты не вешали процесс
+ExecStart=/usr/bin/uvicorn like_scanner.app:app \
+          --host 0.0.0.0 --port ${PORT:-5020} \
+          --workers ${UVICORN_WORKERS:-1} \
+          --timeout-keep-alive 30
+
+# --- Поведение при сбоях ------------------------------------
+Restart=on-failure           # Перезапуск только при ненулевом коде выхода
+RestartSec=5                 # Пауза 5 с перед рестартом
+StartLimitBurst=5
+StartLimitIntervalSec=60
+
+# --- Логирование --------------------------------------------
+# Stdout/Stderr направляются в journald; формат задали в logging_conf.py
+StandardOutput=journal
+StandardError=journal
+
+# --- Ресурсы (по желанию) -----------------------------------
+# Ограничения можно выставить позже, примеры:
+# MemoryMax=500M
+# LimitNOFILE=65536
+
+# ------------------------------------------------------------
+[Install]
+WantedBy=multi-user.target    # Запускать вместе с системой

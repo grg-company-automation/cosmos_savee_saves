@@ -1,0 +1,424 @@
+[2025-05-04 08:48:06] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-04 08:48:06] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-04 08:48:06] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-04 08:48:06] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_1mvir2i1
+[2025-05-04 08:48:06] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0
+[2025-05-04 08:48:13] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-04 08:48:13] INFO [like_scanner.infra.drivers.savee_driver] Файл с cookies не найден по пути /Downloads/IT/Project/Works/cosmos_savee_check/Code/savee_state.json. Пропускаем загрузку cookies.
+[2025-05-04 08:48:14] INFO [like_scanner.app] Savee driver ready.
+[2025-05-04 08:48:14] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-04 08:48:14] ERROR [like_scanner.app] Failed to initialize Cosmos driver: module 'like_scanner.infra.drivers.cosmos_driver' has no attribute 'init_cosmos_driver'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 42, in on_startup
+    cosmos = cosmos_driver.init_cosmos_driver()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'like_scanner.infra.drivers.cosmos_driver' has no attribute 'init_cosmos_driver'
+[2025-05-04 08:53:01] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-04 08:53:01] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-04 08:53:01] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-04 08:53:01] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_xaihjvh9
+[2025-05-04 08:53:01] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0
+[2025-05-04 08:53:03] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-04 08:53:03] INFO [like_scanner.infra.drivers.savee_driver] Файл с cookies не найден по пути /Downloads/IT/Project/Works/cosmos_savee_check/Code/savee_state.json. Пропускаем загрузку cookies.
+[2025-05-04 08:53:03] INFO [like_scanner.app] Savee driver ready.
+[2025-05-04 08:53:03] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-04 08:53:03] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-04 08:53:03] INFO [cosmos] No valid session cookies – performing fresh login…
+[2025-05-04 08:53:28] ERROR [like_scanner.app] Failed to initialize Cosmos driver: Cosmos login failed: Failed to submit login form: Message: 
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 42, in on_startup
+    cosmos = cosmos_driver.init_cosmos_driver()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 220, in init_cosmos_driver
+    return CosmosDriver(
+           ^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 128, in __init__
+    raise RuntimeError(f"Cosmos login failed: {result['error']}")
+RuntimeError: Cosmos login failed: Failed to submit login form: Message: 
+
+[2025-05-04 08:55:55] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-04 08:55:55] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-04 08:55:55] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-04 08:55:55] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_t2fr9p8g
+[2025-05-04 08:55:55] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0
+[2025-05-04 08:55:57] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-04 08:55:57] INFO [like_scanner.infra.drivers.savee_driver] Файл с cookies не найден по пути /Downloads/IT/Project/Works/cosmos_savee_check/Code/savee_state.json. Пропускаем загрузку cookies.
+[2025-05-04 08:55:57] INFO [like_scanner.app] Savee driver ready.
+[2025-05-04 08:55:57] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-04 08:55:57] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-04 08:55:57] INFO [cosmos] No valid session cookies – performing fresh login…
+[2025-05-04 08:56:21] ERROR [like_scanner.app] Failed to initialize Cosmos driver: Cosmos login failed: Failed to submit login form: Message: 
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 42, in on_startup
+    cosmos = cosmos_driver.init_cosmos_driver()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 229, in init_cosmos_driver
+    return CosmosDriver(
+           ^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 137, in __init__
+    raise RuntimeError(f"Cosmos login failed: {result['error']}")
+RuntimeError: Cosmos login failed: Failed to submit login form: Message: 
+
+[2025-05-04 08:59:56] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-04 08:59:56] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-04 08:59:56] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-04 08:59:56] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_l7zn3k3h
+[2025-05-04 08:59:56] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0
+[2025-05-04 08:59:58] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-04 08:59:58] INFO [like_scanner.infra.drivers.savee_driver] Файл с cookies не найден по пути /Downloads/IT/Project/Works/cosmos_savee_check/Code/savee_state.json. Пропускаем загрузку cookies.
+[2025-05-04 08:59:58] INFO [like_scanner.app] Savee driver ready.
+[2025-05-04 08:59:58] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-04 08:59:58] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-04 08:59:58] INFO [cosmos] No valid session cookies – performing fresh login…
+[2025-05-04 09:00:23] ERROR [like_scanner.app] Failed to initialize Cosmos driver: Cosmos login failed: Failed to submit login form: Message: 
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 42, in on_startup
+    cosmos = cosmos_driver.init_cosmos_driver()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 230, in init_cosmos_driver
+    return CosmosDriver(
+           ^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 138, in __init__
+    raise RuntimeError(f"Cosmos login failed: {result['error']}")
+RuntimeError: Cosmos login failed: Failed to submit login form: Message: 
+
+[2025-05-04 09:05:07] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-04 09:05:07] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-04 09:05:07] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-04 09:05:07] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_h1j63fl3
+[2025-05-04 09:05:07] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0
+[2025-05-04 09:05:08] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-04 09:05:08] INFO [like_scanner.infra.drivers.savee_driver] Файл с cookies не найден по пути /Downloads/IT/Project/Works/cosmos_savee_check/Code/savee_state.json. Пропускаем загрузку cookies.
+[2025-05-04 09:05:09] INFO [like_scanner.app] Savee driver ready.
+[2025-05-04 09:05:09] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-04 09:05:09] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-04 09:05:09] INFO [cosmos] No valid session cookies – performing fresh login…
+[2025-05-04 09:05:36] ERROR [like_scanner.app] Failed to initialize Cosmos driver: Cosmos login failed: Failed to submit login form: Message: 
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 42, in on_startup
+    cosmos = cosmos_driver.init_cosmos_driver()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 249, in init_cosmos_driver
+    return CosmosDriver(
+           ^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 157, in __init__
+    raise RuntimeError(f"Cosmos login failed: {result['error']}")
+RuntimeError: Cosmos login failed: Failed to submit login form: Message: 
+
+[2025-05-04 09:07:47] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-04 09:07:47] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-04 09:07:47] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-04 09:07:47] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_mqbs5ufq
+[2025-05-04 09:07:47] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0
+[2025-05-04 09:07:49] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-04 09:07:49] INFO [like_scanner.infra.drivers.savee_driver] Файл с cookies не найден по пути /Downloads/IT/Project/Works/cosmos_savee_check/Code/savee_state.json. Пропускаем загрузку cookies.
+[2025-05-04 09:07:49] INFO [like_scanner.app] Savee driver ready.
+[2025-05-04 09:07:49] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-04 09:07:50] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-04 09:07:50] INFO [cosmos] No valid session cookies – performing fresh login…
+[2025-05-04 09:08:25] ERROR [like_scanner.app] Failed to initialize Cosmos driver: Cosmos login failed: Failed to submit login form: Message: 
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 42, in on_startup
+    cosmos = cosmos_driver.init_cosmos_driver()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 249, in init_cosmos_driver
+    return CosmosDriver(
+           ^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 157, in __init__
+    raise RuntimeError(f"Cosmos login failed: {result['error']}")
+RuntimeError: Cosmos login failed: Failed to submit login form: Message: 
+
+[2025-05-04 09:19:26] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-04 09:19:26] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-04 09:19:26] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-04 09:19:26] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_cf8uw9hb
+[2025-05-04 09:19:26] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0
+[2025-05-04 09:19:28] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-04 09:19:28] INFO [like_scanner.infra.drivers.savee_driver] Файл с cookies не найден по пути /Downloads/IT/Project/Works/cosmos_savee_check/Code/savee_state.json. Пропускаем загрузку cookies.
+[2025-05-04 09:19:28] INFO [like_scanner.app] Savee driver ready.
+[2025-05-04 09:19:28] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-04 09:19:28] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-04 09:19:28] INFO [cosmos] No valid session cookies – performing fresh login…
+[2025-05-04 09:19:32] ERROR [like_scanner.app] Failed to initialize Cosmos driver: Cosmos login failed: Failed to submit login form: Message: invalid element state
+  (Session info: chrome=135.0.7049.116)
+Stacktrace:
+0   chromedriver                        0x0000000100f72a54 cxxbridge1$str$ptr + 2803960
+1   chromedriver                        0x0000000100f6acf0 cxxbridge1$str$ptr + 2771860
+2   chromedriver                        0x0000000100ab66d8 cxxbridge1$string$len + 92632
+3   chromedriver                        0x0000000100af4e04 cxxbridge1$string$len + 348420
+4   chromedriver                        0x0000000100af2aa8 cxxbridge1$string$len + 339368
+5   chromedriver                        0x0000000100b3e480 cxxbridge1$string$len + 649088
+6   chromedriver                        0x0000000100af17ec cxxbridge1$string$len + 334572
+7   chromedriver                        0x0000000100f37ccc cxxbridge1$str$ptr + 2562928
+8   chromedriver                        0x0000000100f3af98 cxxbridge1$str$ptr + 2575932
+9   chromedriver                        0x0000000100f182c4 cxxbridge1$str$ptr + 2433384
+10  chromedriver                        0x0000000100f3b810 cxxbridge1$str$ptr + 2578100
+11  chromedriver                        0x0000000100f092f0 cxxbridge1$str$ptr + 2371988
+12  chromedriver                        0x0000000100f5b57c cxxbridge1$str$ptr + 2708512
+13  chromedriver                        0x0000000100f5b708 cxxbridge1$str$ptr + 2708908
+14  chromedriver                        0x0000000100f6a93c cxxbridge1$str$ptr + 2770912
+15  libsystem_pthread.dylib             0x0000000184e12f94 _pthread_start + 136
+16  libsystem_pthread.dylib             0x0000000184e0dd34 thread_start + 8
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 42, in on_startup
+    cosmos = cosmos_driver.init_cosmos_driver()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 285, in init_cosmos_driver
+    return CosmosDriver(
+           ^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 193, in __init__
+    raise RuntimeError(f"Cosmos login failed: {result['error']}")
+RuntimeError: Cosmos login failed: Failed to submit login form: Message: invalid element state
+  (Session info: chrome=135.0.7049.116)
+Stacktrace:
+0   chromedriver                        0x0000000100f72a54 cxxbridge1$str$ptr + 2803960
+1   chromedriver                        0x0000000100f6acf0 cxxbridge1$str$ptr + 2771860
+2   chromedriver                        0x0000000100ab66d8 cxxbridge1$string$len + 92632
+3   chromedriver                        0x0000000100af4e04 cxxbridge1$string$len + 348420
+4   chromedriver                        0x0000000100af2aa8 cxxbridge1$string$len + 339368
+5   chromedriver                        0x0000000100b3e480 cxxbridge1$string$len + 649088
+6   chromedriver                        0x0000000100af17ec cxxbridge1$string$len + 334572
+7   chromedriver                        0x0000000100f37ccc cxxbridge1$str$ptr + 2562928
+8   chromedriver                        0x0000000100f3af98 cxxbridge1$str$ptr + 2575932
+9   chromedriver                        0x0000000100f182c4 cxxbridge1$str$ptr + 2433384
+10  chromedriver                        0x0000000100f3b810 cxxbridge1$str$ptr + 2578100
+11  chromedriver                        0x0000000100f092f0 cxxbridge1$str$ptr + 2371988
+12  chromedriver                        0x0000000100f5b57c cxxbridge1$str$ptr + 2708512
+13  chromedriver                        0x0000000100f5b708 cxxbridge1$str$ptr + 2708908
+14  chromedriver                        0x0000000100f6a93c cxxbridge1$str$ptr + 2770912
+15  libsystem_pthread.dylib             0x0000000184e12f94 _pthread_start + 136
+16  libsystem_pthread.dylib             0x0000000184e0dd34 thread_start + 8
+
+[2025-05-04 09:21:50] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-04 09:21:50] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-04 09:21:50] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-04 09:21:50] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_b8oyvfos
+[2025-05-04 09:21:50] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0
+[2025-05-04 09:21:52] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-04 09:21:52] INFO [like_scanner.infra.drivers.savee_driver] Файл с cookies не найден по пути /Downloads/IT/Project/Works/cosmos_savee_check/Code/savee_state.json. Пропускаем загрузку cookies.
+[2025-05-04 09:21:52] INFO [like_scanner.app] Savee driver ready.
+[2025-05-04 09:21:52] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-04 09:21:52] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-04 09:21:52] INFO [cosmos] No valid session cookies – performing fresh login…
+[2025-05-04 09:22:19] ERROR [like_scanner.app] Failed to initialize Cosmos driver: Cosmos login failed: Failed to submit login form: Message: 
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 42, in on_startup
+    cosmos = cosmos_driver.init_cosmos_driver()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 295, in init_cosmos_driver
+    return CosmosDriver(
+           ^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 207, in __init__
+    raise RuntimeError(f"Cosmos login failed: {result['error']}")
+RuntimeError: Cosmos login failed: Failed to submit login form: Message: 
+
+[2025-05-04 09:25:25] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-04 09:25:25] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-04 09:25:25] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-04 09:25:25] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_o8e4yyjx
+[2025-05-04 09:25:25] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0
+[2025-05-04 09:25:27] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-04 09:25:27] INFO [like_scanner.infra.drivers.savee_driver] Файл с cookies не найден по пути /Downloads/IT/Project/Works/cosmos_savee_check/Code/savee_state.json. Пропускаем загрузку cookies.
+[2025-05-04 09:25:27] INFO [like_scanner.app] Savee driver ready.
+[2025-05-04 09:25:27] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-04 09:25:27] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-04 09:25:27] INFO [cosmos] No valid session cookies – performing fresh login…
+[2025-05-04 09:25:54] ERROR [like_scanner.app] Failed to initialize Cosmos driver: Cosmos login failed: Failed to submit login form: Message: 
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 42, in on_startup
+    cosmos = cosmos_driver.init_cosmos_driver()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 295, in init_cosmos_driver
+    return CosmosDriver(
+           ^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 207, in __init__
+    raise RuntimeError(f"Cosmos login failed: {result['error']}")
+RuntimeError: Cosmos login failed: Failed to submit login form: Message: 
+
+[2025-05-04 09:32:04] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-04 09:32:04] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-04 09:32:04] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-04 09:32:04] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_qfdw2qui
+[2025-05-04 09:32:04] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0
+[2025-05-04 09:32:06] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-04 09:32:06] INFO [like_scanner.infra.drivers.savee_driver] Файл с cookies не найден по пути /Downloads/IT/Project/Works/cosmos_savee_check/Code/savee_state.json. Пропускаем загрузку cookies.
+[2025-05-04 09:32:06] INFO [like_scanner.app] Savee driver ready.
+[2025-05-04 09:32:06] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-04 09:32:06] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-04 09:32:06] INFO [cosmos] No valid session cookies – performing fresh login…
+[2025-05-04 09:32:35] ERROR [like_scanner.app] Failed to initialize Cosmos driver: Cosmos login failed: Failed to submit login form: Message: 
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 42, in on_startup
+    cosmos = cosmos_driver.init_cosmos_driver()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 295, in init_cosmos_driver
+    return CosmosDriver(
+           ^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 207, in __init__
+    raise RuntimeError(f"Cosmos login failed: {result['error']}")
+RuntimeError: Cosmos login failed: Failed to submit login form: Message: 
+
+[2025-05-04 09:53:43] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-04 09:53:43] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-04 09:53:43] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-04 09:53:43] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_hxejtox4
+[2025-05-04 09:53:43] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0
+[2025-05-04 09:53:43] WARNING [selenium.webdriver.common.selenium_manager] There was an error managing chromedriver (error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json)); using driver found in the cache
+[2025-05-04 09:53:43] WARNING [selenium.webdriver.common.selenium_manager] Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event)
+[2025-05-04 09:53:45] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-04 09:53:45] INFO [like_scanner.infra.drivers.savee_driver] Файл с cookies не найден по пути /Downloads/IT/Project/Works/cosmos_savee_check/Code/savee_state.json. Пропускаем загрузку cookies.
+[2025-05-04 09:53:45] INFO [like_scanner.app] Savee driver ready.
+[2025-05-04 09:53:45] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-04 09:53:45] WARNING [selenium.webdriver.common.selenium_manager] There was an error managing chromedriver (error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json)); using driver found in the cache
+[2025-05-04 09:53:45] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-04 09:53:45] INFO [cosmos] No valid session cookies – performing fresh login…
+[2025-05-04 09:53:45] ERROR [like_scanner.app] Failed to initialize Cosmos driver: Message: unknown error: net::ERR_INTERNET_DISCONNECTED
+  (Session info: chrome=135.0.7049.116)
+Stacktrace:
+0   chromedriver                        0x00000001034cee10 cxxbridge1$str$ptr + 2817040
+1   chromedriver                        0x00000001034c70ac cxxbridge1$str$ptr + 2784940
+2   chromedriver                        0x000000010300e8d8 cxxbridge1$string$len + 93028
+3   chromedriver                        0x0000000103006e38 cxxbridge1$string$len + 61636
+4   chromedriver                        0x0000000102ff8fec cxxbridge1$string$len + 4728
+5   chromedriver                        0x0000000102ffa9cc cxxbridge1$string$len + 11352
+6   chromedriver                        0x0000000102ff9454 cxxbridge1$string$len + 5856
+7   chromedriver                        0x0000000102ff8dc8 cxxbridge1$string$len + 4180
+8   chromedriver                        0x0000000102ff8b14 cxxbridge1$string$len + 3488
+9   chromedriver                        0x0000000102ff68f8 chromedriver + 190712
+10  chromedriver                        0x0000000102ff7354 chromedriver + 193364
+11  chromedriver                        0x0000000103011888 cxxbridge1$string$len + 105236
+12  chromedriver                        0x0000000103097224 cxxbridge1$string$len + 652464
+13  chromedriver                        0x00000001030967b8 cxxbridge1$string$len + 649796
+14  chromedriver                        0x0000000103049a80 cxxbridge1$string$len + 335116
+15  chromedriver                        0x0000000103493c98 cxxbridge1$str$ptr + 2575000
+16  chromedriver                        0x0000000103496f64 cxxbridge1$str$ptr + 2588004
+17  chromedriver                        0x0000000103473a20 cxxbridge1$str$ptr + 2443296
+18  chromedriver                        0x00000001034977e0 cxxbridge1$str$ptr + 2590176
+19  chromedriver                        0x0000000103464b14 cxxbridge1$str$ptr + 2382100
+20  chromedriver                        0x00000001034b79c4 cxxbridge1$str$ptr + 2721732
+21  chromedriver                        0x00000001034b7b50 cxxbridge1$str$ptr + 2722128
+22  chromedriver                        0x00000001034c6cf8 cxxbridge1$str$ptr + 2783992
+23  libsystem_pthread.dylib             0x0000000184e12f94 _pthread_start + 136
+24  libsystem_pthread.dylib             0x0000000184e0dd34 thread_start + 8
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 42, in on_startup
+    cosmos = cosmos_driver.init_cosmos_driver()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 295, in init_cosmos_driver
+    return CosmosDriver(
+           ^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 203, in __init__
+    result = perform_cosmos_login(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/infra/drivers/cosmos_driver.py", line 53, in perform_cosmos_login
+    driver.get(login_url)
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 454, in get
+    self.execute(Command.GET, {"url": url})
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: net::ERR_INTERNET_DISCONNECTED
+  (Session info: chrome=135.0.7049.116)
+Stacktrace:
+0   chromedriver                        0x00000001034cee10 cxxbridge1$str$ptr + 2817040
+1   chromedriver                        0x00000001034c70ac cxxbridge1$str$ptr + 2784940
+2   chromedriver                        0x000000010300e8d8 cxxbridge1$string$len + 93028
+3   chromedriver                        0x0000000103006e38 cxxbridge1$string$len + 61636
+4   chromedriver                        0x0000000102ff8fec cxxbridge1$string$len + 4728
+5   chromedriver                        0x0000000102ffa9cc cxxbridge1$string$len + 11352
+6   chromedriver                        0x0000000102ff9454 cxxbridge1$string$len + 5856
+7   chromedriver                        0x0000000102ff8dc8 cxxbridge1$string$len + 4180
+8   chromedriver                        0x0000000102ff8b14 cxxbridge1$string$len + 3488
+9   chromedriver                        0x0000000102ff68f8 chromedriver + 190712
+10  chromedriver                        0x0000000102ff7354 chromedriver + 193364
+11  chromedriver                        0x0000000103011888 cxxbridge1$string$len + 105236
+12  chromedriver                        0x0000000103097224 cxxbridge1$string$len + 652464
+13  chromedriver                        0x00000001030967b8 cxxbridge1$string$len + 649796
+14  chromedriver                        0x0000000103049a80 cxxbridge1$string$len + 335116
+15  chromedriver                        0x0000000103493c98 cxxbridge1$str$ptr + 2575000
+16  chromedriver                        0x0000000103496f64 cxxbridge1$str$ptr + 2588004
+17  chromedriver                        0x0000000103473a20 cxxbridge1$str$ptr + 2443296
+18  chromedriver                        0x00000001034977e0 cxxbridge1$str$ptr + 2590176
+19  chromedriver                        0x0000000103464b14 cxxbridge1$str$ptr + 2382100
+20  chromedriver                        0x00000001034b79c4 cxxbridge1$str$ptr + 2721732
+21  chromedriver                        0x00000001034b7b50 cxxbridge1$str$ptr + 2722128
+22  chromedriver                        0x00000001034c6cf8 cxxbridge1$str$ptr + 2783992
+23  libsystem_pthread.dylib             0x0000000184e12f94 _pthread_start + 136
+24  libsystem_pthread.dylib             0x0000000184e0dd34 thread_start + 8
+
+[2025-05-04 13:27:48] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-04 13:27:48] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-04 13:27:48] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-04 13:27:48] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_y1hncdnz
+[2025-05-04 13:27:48] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0
+[2025-05-04 13:27:50] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-04 13:27:50] INFO [like_scanner.infra.drivers.savee_driver] Файл с cookies не найден по пути /Downloads/IT/Project/Works/cosmos_savee_check/Code/savee_state.json. Пропускаем загрузку cookies.
+[2025-05-04 13:27:50] INFO [like_scanner.app] Savee driver ready.
+[2025-05-04 13:27:50] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-04 13:27:51] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-04 13:27:59] INFO [cosmos] Existing Cosmos session restored from cookies.
+[2025-05-04 13:27:59] INFO [like_scanner.app] Cosmos driver ready.
+[2025-05-04 13:32:44] INFO [like_scanner.app] Stopping Like-Scanner API...
+[2025-05-04 13:32:44] INFO [like_scanner.app] Closing Savee driver...
+[2025-05-04 13:32:44] WARNING [urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x107207450>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/7d900e9c42cb3da37c2c00c9acd4cdda
+[2025-05-04 13:32:44] WARNING [urllib3.connectionpool] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10722c290>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/7d900e9c42cb3da37c2c00c9acd4cdda
+[2025-05-04 13:32:44] WARNING [urllib3.connectionpool] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10722c950>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/7d900e9c42cb3da37c2c00c9acd4cdda
+[2025-05-04 13:32:44] INFO [like_scanner.app] Savee driver closed.
+[2025-05-04 13:32:44] INFO [like_scanner.app] Closing Cosmos driver...
+[2025-05-04 13:32:44] ERROR [like_scanner.app] Error while closing Cosmos driver: 'CosmosDriver' object has no attribute 'quit'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 75, in on_shutdown
+    cosmos.quit()
+    ^^^^^^^^^^^
+AttributeError: 'CosmosDriver' object has no attribute 'quit'
+[2025-05-04 13:32:48] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-04 13:32:48] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-04 13:32:48] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-04 13:32:48] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_mawktozh
+[2025-05-04 13:32:48] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0
+[2025-05-04 13:32:49] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-04 13:32:49] INFO [like_scanner.infra.drivers.savee_driver] Файл с cookies не найден по пути /Downloads/IT/Project/Works/cosmos_savee_check/Code/savee_state.json. Пропускаем загрузку cookies.
+[2025-05-04 13:32:49] INFO [like_scanner.app] Savee driver ready.
+[2025-05-04 13:32:49] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-04 13:32:49] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-04 13:32:59] INFO [cosmos] Existing Cosmos session restored from cookies.
+[2025-05-04 13:32:59] INFO [like_scanner.app] Cosmos driver ready.
+[2025-05-04 15:39:11] INFO [like_scanner.app] Stopping Like-Scanner API...
+[2025-05-04 15:39:11] INFO [like_scanner.app] Closing Savee driver...
+[2025-05-04 15:39:11] WARNING [urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1060c58d0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/ed9170d1f0f04a0903b1c310f2411c65
+[2025-05-04 15:39:11] WARNING [urllib3.connectionpool] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1060e8b90>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/ed9170d1f0f04a0903b1c310f2411c65
+[2025-05-04 15:39:11] WARNING [urllib3.connectionpool] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1060e9550>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/ed9170d1f0f04a0903b1c310f2411c65
+[2025-05-04 15:39:11] INFO [like_scanner.app] Savee driver closed.
+[2025-05-04 15:39:11] INFO [like_scanner.app] Closing Cosmos driver...
+[2025-05-04 15:39:11] ERROR [like_scanner.app] Error while closing Cosmos driver: 'CosmosDriver' object has no attribute 'quit'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 75, in on_shutdown
+    cosmos.quit()
+    ^^^^^^^^^^^
+AttributeError: 'CosmosDriver' object has no attribute 'quit'
+[2025-05-04 15:39:15] INFO [like_scanner.app] Starting Like-Scanner API...
+[2025-05-04 15:39:15] INFO [like_scanner.app] Initializing Savee driver...
+[2025-05-04 15:39:15] INFO [like_scanner.infra.drivers.savee_driver] Инициализация Selenium-драйвера для Savee в headless-режиме...
+[2025-05-04 15:39:15] INFO [like_scanner.infra.drivers.savee_driver] Создан временный профиль для Chrome: /var/folders/6g/wr22f5d942z1lv830qjt4_gc0000gn/T/savee_profile_i8fte79r
+[2025-05-04 15:39:15] INFO [like_scanner.infra.drivers.savee_driver] User-Agent установлен: Mozilla/5.0
+[2025-05-04 15:39:18] INFO [like_scanner.infra.drivers.savee_driver] WebDriver успешно запущен.
+[2025-05-04 15:39:18] INFO [like_scanner.infra.drivers.savee_driver] Файл с cookies не найден по пути /Downloads/IT/Project/Works/cosmos_savee_check/Code/savee_state.json. Пропускаем загрузку cookies.
+[2025-05-04 15:39:18] INFO [like_scanner.app] Savee driver ready.
+[2025-05-04 15:39:18] INFO [like_scanner.app] Initializing Cosmos driver...
+[2025-05-04 15:39:18] INFO [cosmos] Chrome WebDriver started (headless=True).
+[2025-05-04 15:39:26] INFO [cosmos] Existing Cosmos session restored from cookies.
+[2025-05-04 15:39:26] INFO [like_scanner.app] Cosmos driver ready.
+[2025-05-04 15:40:03] INFO [like_scanner.app] Stopping Like-Scanner API...
+[2025-05-04 15:40:03] INFO [like_scanner.app] Closing Savee driver...
+[2025-05-04 15:40:03] WARNING [urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1032e9390>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/d90b91f04c40f9a0ea8852b9eb3f679a
+[2025-05-04 15:40:03] WARNING [urllib3.connectionpool] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10330da10>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/d90b91f04c40f9a0ea8852b9eb3f679a
+[2025-05-04 15:40:03] WARNING [urllib3.connectionpool] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10330dc50>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/d90b91f04c40f9a0ea8852b9eb3f679a
+[2025-05-04 15:40:03] INFO [like_scanner.app] Savee driver closed.
+[2025-05-04 15:40:03] INFO [like_scanner.app] Closing Cosmos driver...
+[2025-05-04 15:40:03] ERROR [like_scanner.app] Error while closing Cosmos driver: 'CosmosDriver' object has no attribute 'quit'
+Traceback (most recent call last):
+  File "/Users/rum/Downloads/IT/Project/Works/savee-cosmos-saves/Code/like_scanner/app.py", line 75, in on_shutdown
+    cosmos.quit()
+    ^^^^^^^^^^^
+AttributeError: 'CosmosDriver' object has no attribute 'quit'
