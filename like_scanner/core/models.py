@@ -1,6 +1,6 @@
 # like_scanner/core/models.py
 """
-Domain-модели Like-Scanner’а.
+Domain-модели Like-Scanner'а.
 
 * **MediaItem**  – одна карточка (картинка/видео).
 * **ScanResult** – результат обработки одной карточки.
@@ -129,7 +129,7 @@ class ConfigRow(BaseModel):
 
 
 # ══════════════════════════════
-#        SESSION TRACKER
+#        SESSION TRACKER
 # ══════════════════════════════
 @dataclass
 class SessionTracker:
@@ -139,7 +139,7 @@ class SessionTracker:
     * `driver`      – Selenium‑драйвер (опц.)
     * `settings`    – объект настроек (config.Settings), опц.
     * `next_index`  – индекс, который нужно обработать при следующем вызове
-    * `fails`       – сколько подряд miss’ов было
+    * `fails`       – сколько подряд miss'ов было
     """
     driver: object | None = None
     settings: object | None = None
@@ -166,45 +166,132 @@ class SessionTracker:
 
     def continue_parse(self) -> "ScanResult":
         """
-        Заглушка: вызывает простой пропуск одного индекса без хита.
+        Выполняет парсинг для текущего индекса и определяет "hit" на основе количества сохранений.
 
-        В дальнейшем сюда можно вставить реальный вызов парсера
-        (savee_parser.process_one / cosmos_parser.process_one) и логику
-        обновления fails / next_index на основании результата.
+        Вызывает соответствующую функцию парсинга в зависимости от типа драйвера (Savee или Cosmos).
+        Сравнивает количество сохранений с порогом LIKES_THRESHOLD.
 
-        Сейчас возвращает ScanResult(hit=False, next_index+1).
+        Returns:
+            ScanResult с результатом парсинга и hit=True, если saves >= LIKES_THRESHOLD.
         """
-        self.miss(step=1)  # считаем, что текущая карта «мимо»
-        return ScanResult(
-            hit=False,
-            next_index=self.next_index,
-            item=None,
-            error=None,
-        )
+        # Импортируем парсеры здесь, чтобы избежать циклических импортов
+        from like_scanner.infra.drivers.savee_driver import parse_savee_profile
+        from like_scanner.infra.drivers.cosmos_driver import parse_cosmos_profile
+        from .constants import LIKES_THRESHOLD
 
-    # ────────────────────────────
-    #   continue_parse (stub)
-    # ────────────────────────────
-    def continue_parse(self) -> "ScanResult":
-        """
-        Заглушка, чтобы роуты не падали.
+        # Логируем важную отладочную информацию о пороге
+        logger.info(
+            f"ДИАГНОСТИКА: Проверка изображений с индекса {self.next_index}, порог LIKES_THRESHOLD={LIKES_THRESHOLD}")
 
-        Логика:
-        • если драйвер и settings переданы, здесь могли бы вызываться
-          реальные парсеры (savee_process / cosmos_process);
-        • сейчас просто возвращаем ScanResult(hit=False) и
-          двигаем индекс на +1, чтобы сохранить совместимость с роутами.
-        """
-        # для совместимости импортируем здесь, чтобы избежать кругового импорта
-        from like_scanner.core.models import ScanResult
+        if not self.driver:
+            logger.warning(
+                "Драйвер не инициализирован при вызове continue_parse")
+            self.miss(step=1)
+            return ScanResult(
+                hit=False,
+                next_index=self.next_index,
+                item=None,
+                error="Драйвер не инициализирован"
+            )
 
-        self.miss(step=1)  # увеличиваем fails и next_index
-        return ScanResult(
-            hit=False,
-            next_index=self.next_index,
-            item=None,
-            error=None,
-        )
+        # Определяем, какой драйвер используется - Savee или Cosmos
+        driver_type = str(type(self.driver)).lower()
+        logger.info(f"ДИАГНОСТИКА: Тип драйвера: {driver_type}")
+
+        try:
+            # Получаем текущий URL или используем дефолтный для платформы
+            current_url = self.driver.current_url
+            logger.info(f"ДИАГНОСТИКА: Текущий URL: {current_url}")
+
+            # Не уменьшаем индекс на 1, используем точно переданный индекс
+            start_idx = self.next_index
+
+            # Определяем, какую функцию парсинга использовать
+            logger.info(f"ДИАГНОСТИКА: Начинаем парсинг с индекса {start_idx}")
+            if "cosmos" in driver_type:
+                logger.info(
+                    f"Определен драйвер Cosmos, парсим по индексу {start_idx}")
+                # Парсим профиль Cosmos
+                result = parse_cosmos_profile(
+                    self.driver, current_url, start_idx)
+            else:
+                logger.info(
+                    f"Определен драйвер Savee, парсим по индексу {start_idx}")
+                # Парсим профиль Savee
+                result = parse_savee_profile(
+                    self.driver, current_url, start_idx)
+
+            logger.info(f"ДИАГНОСТИКА: Результат парсинга: {result}")
+
+            # Проверяем результат
+            if result.get("error"):
+                logger.warning(f"Ошибка при парсинге: {result['error']}")
+                self.miss(step=1)
+                return ScanResult(
+                    hit=False,
+                    next_index=self.next_index,  # Используем обновленный индекс после miss()
+                    error=result.get("error")
+                )
+
+            # Определяем "hit" на основе сравнения с порогом
+            image_url = result.get("image_url")
+            saves_count = result.get("saves", 0)
+
+            # Если получено достаточное количество сохранений, считаем это hit
+            # Принудительно приводим к int для гарантии корректного сравнения
+            saves_count = int(saves_count)
+            is_hit = saves_count >= LIKES_THRESHOLD
+
+            logger.info(
+                f"ДИАГНОСТИКА: Сравниваем {saves_count} >= {LIKES_THRESHOLD} = {is_hit}")
+
+            # Не вызываем hit() и miss() здесь, т.к. они изменяют next_index
+            # Логируем только результат сравнения
+            if is_hit:
+                logger.info(
+                    f"HIT! Изображение {image_url} имеет {saves_count} сохранений (>= {LIKES_THRESHOLD})")
+            else:
+                logger.info(
+                    f"MISS. Изображение {image_url} имеет {saves_count} сохранений (< {LIKES_THRESHOLD})")
+
+            # Обновляем счетчик fails непосредственно здесь
+            if is_hit:
+                self.fails = 0
+            else:
+                self.fails += 1
+
+            # Создаем MediaItem только если это hit
+            item = None
+            if is_hit and image_url:
+                item = MediaItem(
+                    index=start_idx,  # исходный индекс
+                    url=image_url,
+                    saves=saves_count
+                )
+
+            # Сохраняем next_index из результата парсинга, если он есть
+            next_idx = result.get("next_index", self.next_index)
+
+            # Возвращаем результат парсинга с обновленным индексом
+            scan_result = ScanResult(
+                hit=is_hit,
+                next_index=next_idx,  # Берем индекс из результата парсера
+                item=item,
+                error=None
+            )
+
+            logger.info(
+                f"ДИАГНОСТИКА: Возвращаем результат: hit={is_hit}, next_index={next_idx}, saves={saves_count}")
+            return scan_result
+
+        except Exception as e:
+            logger.exception(f"Ошибка в процессе парсинга: {e}")
+            self.miss(step=1)
+            return ScanResult(
+                hit=False,
+                next_index=self.next_index,
+                error=str(e)
+            )
 
 
 # ──────────────────────────────

@@ -58,6 +58,13 @@ def _float_env(var: str, default: float) -> float:
 LIKES_THRESHOLD: int = _int_env("LIKES_THRESHOLD", 20)
 MAX_FAILS: int = _int_env("MAX_FAILS", 20)
 
+# Для отладки: если установлена переменная DEBUG_MODE=1, используем очень низкий порог лайков
+if os.getenv("DEBUG_MODE") == "1":
+    debug_threshold = _int_env("DEBUG_LIKES_THRESHOLD", 2)
+    logger.warning(
+        f"ОТЛАДКА: Установлен низкий порог лайков: {debug_threshold} (обычно {LIKES_THRESHOLD})")
+    LIKES_THRESHOLD = debug_threshold
+
 # ─────────────────────────────────────────────
 #  Тайминги Selenium / парсинга
 # ─────────────────────────────────────────────

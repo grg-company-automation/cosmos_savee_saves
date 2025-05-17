@@ -131,6 +131,9 @@ def perform_savee_login(driver, login_url: str | None = None) -> dict:
 
 def parse_savee_profile(driver, profile_url, start_index) -> dict:
     """Парсит страницу профиля Savee и возвращает информацию о новом элементе (изображении/видео)."""
+    # Индекс не может быть отрицательным
+    start_index = max(0, start_index)
+
     logger.info(
         f"Запуск парсинга профиля: {profile_url}, start_index={start_index}")
     # Единый словарь результата (как в cosmos_driver)
@@ -141,6 +144,10 @@ def parse_savee_profile(driver, profile_url, start_index) -> dict:
         "next_index": start_index,
         "error": None
     }
+
+    # Добавляем диагностическую информацию
+    logger.info("ДИАГНОСТИКА: Начало парсинга Savee с индекса %s", start_index)
+
     # Проверка авторизации (если на странице присутствует кнопка входа или подобный признак)
     page_source = driver.page_source.lower()
     if "log in" in page_source or "login" in driver.current_url.lower():
@@ -262,21 +269,160 @@ def parse_savee_profile(driver, profile_url, start_index) -> dict:
         image_url = url
         logger.info(f"Выбрано изображение по индексу {idx}: URL={image_url}")
 
-        # По‑прежнему можно попытаться получить число сохранений (оставляем 0 по умолчанию)
+        # Получаем количество сохранений для этого изображения
         saves_count = 0
+        try:
+            # Находим все контейнеры с изображениями
+            for img in img_elements:
+                current_src = img.get_attribute("src")
+                if current_src == image_url:
+                    logger.info(
+                        "ДИАГНОСТИКА: Найдено совпадающее изображение в DOM")
 
-        result["hit"] = True
+                    # Сначала ищем числа рядом с изображением в разных направлениях DOM
+                    current_elem = img
+                    parent_levels = [current_elem]
+
+                    # Сначала проверяем самый простой случай - число внутри атрибутов самого изображения
+                    data_attrs = driver.execute_script("""
+                        var attrs = {};
+                        var elem = arguments[0];
+                        for (var i = 0; i < elem.attributes.length; i++) {
+                            var attr = elem.attributes[i];
+                            if (attr.name.startsWith('data-') && !isNaN(parseInt(attr.value))) {
+                                attrs[attr.name] = attr.value;
+                            }
+                        }
+                        return attrs;
+                    """, img)
+
+                    for attr_name, attr_value in data_attrs.items():
+                        if 'save' in attr_name.lower() or 'like' in attr_name.lower():
+                            try:
+                                saves_count = int(attr_value)
+                                logger.info(
+                                    f"ДИАГНОСТИКА: Найдено число сохранений в атрибуте {attr_name}: {saves_count}")
+                                break
+                            except:
+                                pass
+
+                    # Если не нашли, продолжаем искать в соседних и родительских элементах
+                    # Проверяем до 8 уровней вверх
+                    for level in range(8):
+                        try:
+                            # 1. Ищем span или div с только числом внутри
+                            for selector in [
+                                ".//span[text()[not(contains(., ' '))]][string-length(normalize-space()) <= 5]",
+                                ".//div[text()[not(contains(., ' '))]][string-length(normalize-space()) <= 5]",
+                                ".//span[contains(@class, 'save')]",
+                                ".//span[contains(@class, 'like')]",
+                                ".//span[contains(@class, 'count')]",
+                                ".//div[contains(@class, 'save')]",
+                                ".//div[contains(@class, 'like')]",
+                                ".//div[contains(@class, 'count')]",
+                                ".//span",
+                                ".//div"
+                            ]:
+                                elements = current_elem.find_elements(
+                                    By.XPATH, selector)
+                                for element in elements:
+                                    text = element.text.strip()
+                                    logger.info(
+                                        f"ДИАГНОСТИКА: Найден элемент с селектором {selector}, текст: '{text}'")
+                                    if text and text.isdigit():
+                                        saves_count = int(text)
+                                        logger.info(
+                                            f"ДИАГНОСТИКА: Найдено количество сохранений: {saves_count}")
+                                        break
+                        except Exception as e:
+                            logger.warning(
+                                f"Ошибка при поиске по селекторам: {e}")
+
+                        # 2. Ищем span или div с только числом внутри
+                        for selector in [
+                            ".//span[text()[not(contains(., ' '))]][string-length(normalize-space()) <= 5]",
+                            ".//div[text()[not(contains(., ' '))]][string-length(normalize-space()) <= 5]",
+                            ".//span[contains(@class, 'save')]",
+                            ".//span[contains(@class, 'like')]",
+                            ".//span[contains(@class, 'count')]",
+                            ".//div[contains(@class, 'save')]",
+                            ".//div[contains(@class, 'like')]",
+                            ".//div[contains(@class, 'count')]",
+                            ".//span",
+                            ".//div"
+                        ]:
+                            elements = current_elem.find_elements(
+                                By.XPATH, selector)
+                            for element in elements:
+                                text = element.text.strip()
+                                logger.info(
+                                    f"ДИАГНОСТИКА: Найден элемент с селектором {selector}, текст: '{text}'")
+                                if text and text.isdigit():
+                                    saves_count = int(text)
+                                    logger.info(
+                                        f"ДИАГНОСТИКА: Найдено количество сохранений: {saves_count}")
+                                    break
+
+                        # Если нашли хоть какое-то число, выходим из цикла
+                        if saves_count > 0:
+                            break
+
+                        # Переходим на следующий уровень
+                        if current_elem.parentElement:
+                            current_elem = current_elem.parentElement
+                        else:
+                            break
+
+                    # Если нашли хоть какое-то число, выходим из цикла
+                    if saves_count > 0:
+                        break
+        except Exception as e:
+            logger.warning(f"Ошибка при извлечении количества сохранений: {e}")
+
+        # 5. Крайняя мера: проверяем всю страницу на наличие чисел рядом с изображениями
+        if saves_count == 0:
+            try:
+                logger.info("ДИАГНОСТИКА: Поиск чисел на всей странице...")
+                # Проверяем весь DOM-дерево, чтобы найти числа
+                all_elements = driver.find_elements(By.XPATH, "//*")
+                for elem in all_elements:
+                    try:
+                        text = elem.text.strip()
+                        if text and text.isdigit():
+                            # Проверяем расстояние до нашего изображения
+                            rect1 = img.rect
+                            rect2 = elem.rect
+                            # Если элемент с числом находится рядом с изображением (например, в пределах 100px)
+                            distance = (
+                                (rect1['x'] - rect2['x'])**2 + (rect1['y'] - rect2['y'])**2)**0.5
+                            if distance < 200:  # примерное расстояние в пикселях
+                                saves_count = int(text)
+                                logger.info(
+                                    f"ДИАГНОСТИКА: Найдено число {saves_count} на расстоянии {distance} пикселей от изображения")
+                                break
+                    except Exception:
+                        continue
+            except Exception as e:
+                logger.warning(f"Ошибка при поиске чисел на странице: {e}")
+
+        # Устанавливаем результат в зависимости от количества сохранений
         result["image_url"] = image_url
         result["saves"] = saves_count
+        logger.info(
+            f"ДИАГНОСТИКА: Итоговое количество сохранений: {saves_count}")
         processed += 1  # учитываем текущее изображение
+        # Четко указываем, что следующий индекс должен быть увеличен
         result["next_index"] = start_index + processed
+        logger.info(
+            f"Обработано изображение, новый индекс: {result['next_index']}")
         return result
+
     # --- Если дошли до конца списка без hit ---
     # Увеличиваем индекс ровно на количество обработанных карточек
     if processed == 0:
         processed = 1  # хотя бы одну карточку «просмотрели»
     result["next_index"] = start_index + processed
     logger.info(
-        "Новых элементов для указанного индекса не найдено. Просмотрено %s карточек.", processed)
+        f"Новых элементов для указанного индекса не найдено. Просмотрено {processed} карточек. Новый индекс: {result['next_index']}")
     result["error"] = "Новые изображения отсутствуют"
     return result

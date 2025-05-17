@@ -300,6 +300,370 @@ def init_cosmos_driver(*, headless: bool = True) -> CosmosDriver:
 
 
 # --------------------------------------------------------------------------- #
+# Parser function for Cosmos images                                           #
+# --------------------------------------------------------------------------- #
+def parse_cosmos_profile(driver, profile_url, start_index) -> dict:
+    """
+    Парсит страницу профиля Cosmos и возвращает информацию о новом элементе.
+
+    Args:
+        driver: Selenium webdriver instance
+        profile_url: URL профиля для парсинга
+        start_index: С какого индекса элемента начинать парсинг
+
+    Returns:
+        dict с результатом парсинга: {
+            "hit": bool,
+            "image_url": str,
+            "saves": int,
+            "next_index": int,
+            "error": str или None
+        }
+    """
+    # Индекс не может быть отрицательным
+    start_index = max(0, start_index)
+
+    logger.info(
+        f"Запуск парсинга профиля Cosmos: {profile_url}, start_index={start_index}")
+
+    # Добавляем диагностическую информацию
+    logger.info("ДИАГНОСТИКА: Начало парсинга Cosmos с индекса %s", start_index)
+
+    # Единый словарь результата (аналогично savee_driver)
+    result = {
+        "hit": False,
+        "image_url": None,
+        "saves": 0,
+        "next_index": start_index,
+        "error": None
+    }
+
+    # Проверка авторизации
+    if "login" in driver.current_url.lower():
+        logger.warning(
+            "Не авторизовано на Cosmos. Требуется повторная авторизация.")
+        result["error"] = "Требуется авторизация для просмотра профиля"
+        return result
+
+    # Переход на профиль, если он ещё не загружен или изменился
+    current_url = driver.current_url
+    if not current_url.startswith(profile_url):
+        try:
+            driver.get(profile_url)
+            logger.info(f"Открыта страница профиля: {profile_url}")
+            # Даем время на загрузку страницы
+            time.sleep(3)
+        except Exception as e:
+            logger.error(f"Ошибка при открытии профиля {profile_url}: {e}")
+            result["error"] = f"Не удалось открыть профиль: {e}"
+            return result
+    else:
+        logger.info(
+            "Профиль уже загружен в браузере, повторный переход не требуется.")
+
+    # Скроллинг для загрузки контента, если нужно
+    max_scrolls = 5
+    scrolls_done = 0
+
+    # Собираем все изображения на странице
+    image_elements = driver.find_elements(By.TAG_NAME, "img")
+    image_count = len(image_elements)
+
+    # Если изображений меньше, чем start_index, нужно скроллить
+    while image_count <= start_index and scrolls_done < max_scrolls:
+        try:
+            driver.execute_script(
+                "window.scrollTo(0, document.body.scrollHeight);")
+            logger.info(f"Выполнена прокрутка #{scrolls_done + 1}")
+            time.sleep(settings.SCROLL_DELAY_SEC or 2)
+
+            # Обновляем список изображений
+            image_elements = driver.find_elements(By.TAG_NAME, "img")
+            new_count = len(image_elements)
+
+            if new_count > image_count:
+                image_count = new_count
+            else:
+                # Если количество изображений не увеличилось, возможно, мы достигли конца страницы
+                logger.info(
+                    "Количество изображений не увеличилось после прокрутки")
+                break
+
+            scrolls_done += 1
+        except Exception as e:
+            logger.warning(f"Ошибка при скроллинге: {e}")
+            break
+
+    # Получаем список всех валидных изображений
+    image_urls = []
+    for img in image_elements:
+        src = img.get_attribute("src")
+        if src and src.lower().endswith((".webp", ".jpg", ".jpeg", ".png", ".gif")):
+            image_urls.append(src)
+
+    logger.info(f"Найдено {len(image_urls)} изображений с валидными URL")
+
+    # Обработка изображений начиная с start_index
+    processed = 0
+    for idx, url in enumerate(image_urls):
+        if idx < start_index:
+            processed += 1
+            continue  # пропускаем до нужного индекса
+
+        image_url = url
+        logger.info(
+            f"Обрабатываем изображение по индексу {idx}: URL={image_url}")
+
+        # Попытка найти количество "Connections" для текущего изображения
+        connections_count = 0
+        try:
+            # Делаем скриншот страницы для отладки (временно)
+            try:
+                screenshot_path = "/tmp/cosmos_debug.png"
+                driver.save_screenshot(screenshot_path)
+                logger.info(
+                    f"ДИАГНОСТИКА: Сохранен скриншот страницы в {screenshot_path}")
+            except Exception as e:
+                logger.warning(f"Не удалось сделать скриншот: {e}")
+
+            # Находим элемент с изображением
+            matching_img = None
+            for img in image_elements:
+                if img.get_attribute("src") == image_url:
+                    matching_img = img
+                    logger.info(
+                        "ДИАГНОСТИКА: Найдено совпадающее изображение в DOM")
+                    break
+
+            if matching_img:
+                try:
+                    # Получаем позицию изображения
+                    img_rect = driver.execute_script(
+                        "return arguments[0].getBoundingClientRect();", matching_img)
+                    img_x = img_rect['x']
+                    img_y = img_rect['y']
+
+                    logger.info(
+                        f"ДИАГНОСТИКА: Позиция изображения: x={img_x}, y={img_y}")
+
+                    # Сначала проверяем атрибуты изображения для чисел
+                    data_attrs = driver.execute_script("""
+                        var attrs = {};
+                        var elem = arguments[0];
+                        for (var i = 0; i < elem.attributes.length; i++) {
+                            var attr = elem.attributes[i];
+                            if (attr.name.startsWith('data-') && !isNaN(parseInt(attr.value))) {
+                                attrs[attr.name] = attr.value;
+                            }
+                        }
+                        return attrs;
+                    """, matching_img)
+
+                    for attr_name, attr_value in data_attrs.items():
+                        if 'connection' in attr_name.lower() or 'count' in attr_name.lower():
+                            try:
+                                connections_count = int(attr_value)
+                                logger.info(
+                                    f"ДИАГНОСТИКА: Найдено число connections в атрибуте {attr_name}: {connections_count}")
+                                break
+                            except:
+                                pass
+
+                    # Если не нашли в атрибутах, ищем в соседних элементах
+                    if connections_count == 0:
+                        # Ищем текст, содержащий "connection" или числа рядом с изображением
+                        page_text = driver.execute_script("""
+                        function getAllVisibleText() {
+                            const walker = document.createTreeWalker(
+                                document.body, 
+                                NodeFilter.SHOW_TEXT,
+                                null, 
+                                false
+                            );
+                            
+                            let textNodes = [];
+                            let node;
+                            while(node = walker.nextNode()) {
+                                const text = node.textContent.trim();
+                                if (text && node.parentElement.offsetParent !== null) {
+                                    const rect = node.parentElement.getBoundingClientRect();
+                                    if (rect.width > 0 && rect.height > 0) {
+                                        textNodes.push({
+                                            text: text,
+                                            x: rect.x,
+                                            y: rect.y,
+                                            width: rect.width,
+                                            height: rect.height
+                                        });
+                                    }
+                                }
+                            }
+                            return textNodes;
+                        }
+                        return getAllVisibleText();
+                        """)
+
+                        # Ищем текст, содержащий "connection" или числа рядом с изображением
+                        closest_number = None
+                        min_distance = float('inf')
+
+                        for text_obj in page_text:
+                            text = text_obj.get('text', '')
+
+                            # Логируем все тексты для анализа
+                            logger.info(
+                                f"ДИАГНОСТИКА: Найден текст на странице: '{text}'")
+
+                            # Проверяем содержит ли текст слово "connection" и цифры
+                            if "connection" in text.lower():
+                                logger.info(
+                                    f"ДИАГНОСТИКА: Найден текст содержащий 'connection': '{text}'")
+                                # Извлекаем числа из текста
+                                import re
+                                numbers = re.findall(r'\d+', text)
+                                if numbers:
+                                    connections_count = int(numbers[0])
+                                    logger.info(
+                                        f"ДИАГНОСТИКА: Извлечено число из текста с connections: {connections_count}")
+                                    break
+
+                            # Если текст просто число, проверяем расстояние до изображения
+                            elif text.isdigit():
+                                # Вычисляем расстояние до изображения
+                                text_x = text_obj.get('x', 0)
+                                text_y = text_obj.get('y', 0)
+                                distance = ((img_x - text_x)**2 +
+                                            (img_y - text_y)**2)**0.5
+
+                                logger.info(
+                                    f"ДИАГНОСТИКА: Найдено число {text} на расстоянии {distance} пикселей от изображения")
+
+                                # Если это ближайшее к изображению число, запоминаем его
+                                if distance < min_distance and distance < 300:  # Максимальное расстояние 300px
+                                    closest_number = int(text)
+                                    min_distance = distance
+
+                        # Если нашли ближайшее число, используем его
+                        if closest_number is not None and connections_count == 0:
+                            connections_count = closest_number
+                            logger.info(
+                                f"ДИАГНОСТИКА: Используем ближайшее число как connections: {connections_count}")
+
+                except Exception as e:
+                    logger.warning(
+                        f"Ошибка при выполнении JavaScript для поиска текста: {e}")
+
+                # Поиск connections через DOM
+                if connections_count == 0:
+                    current_elem = matching_img
+                    parent_levels = [current_elem]
+
+                    # Проверяем родительские элементы до 8 уровней вверх
+                    for level in range(8):
+                        if not current_elem:
+                            break
+
+                        # Ищем элементы с текстом "connection" или просто числа
+                        for selector in [
+                            ".//span[contains(text(), 'connection')]",
+                            ".//div[contains(text(), 'connection')]",
+                            ".//span[text()[not(contains(., ' '))]][string-length(normalize-space()) <= 5]",
+                            ".//div[text()[not(contains(., ' '))]][string-length(normalize-space()) <= 5]",
+                            ".//span[contains(@class, 'connection')]",
+                            ".//div[contains(@class, 'connection')]",
+                            ".//span[contains(@class, 'count')]",
+                            ".//div[contains(@class, 'count')]"
+                        ]:
+                            elements = current_elem.find_elements(
+                                By.XPATH, selector)
+                            for elem in elements:
+                                text = elem.text.strip()
+                                logger.info(
+                                    f"ДИАГНОСТИКА: Найден элемент с селектором {selector}, текст: '{text}'")
+
+                                if text:
+                                    # Извлекаем числа из текста
+                                    import re
+                                    numbers = re.findall(r'\d+', text)
+                                    if numbers:
+                                        connections_count = int(numbers[0])
+                                        logger.info(
+                                            f"ДИАГНОСТИКА: Найдено {connections_count} connections через DOM")
+                                        break
+
+                            if connections_count > 0:
+                                break
+
+                            # Переходим на уровень выше
+                            try:
+                                current_elem = current_elem.find_element(
+                                    By.XPATH, "./..")
+                            except:
+                                break
+
+            # Если все методы не сработали, попробуем найти число на всей странице
+            if connections_count == 0:
+                try:
+                    # Получаем весь текст страницы и ищем в нем шаблоны connections
+                    page_source = driver.page_source.lower()
+                    import re
+
+                    # Ищем шаблоны вида "X connections", "X saves", "connection(X)"
+                    patterns = [
+                        r'(\d+)\s*connections',
+                        r'(\d+)\s*saves',
+                        r'connection\D*(\d+)',
+                        r'connections\D*(\d+)'
+                    ]
+
+                    for pattern in patterns:
+                        matches = re.findall(pattern, page_source)
+                        if matches:
+                            connections_count = int(matches[0])
+                            logger.info(
+                                f"ДИАГНОСТИКА: Найдено {connections_count} через regex в HTML: {pattern}")
+                            break
+                except Exception as e:
+                    logger.warning(f"Ошибка при поиске через regex: {e}")
+
+        except Exception as e:
+            logger.warning(
+                f"Ошибка при извлечении количества connections: {e}")
+
+        # Удаляем тестовые значения для чистоты тестирования
+        # # Для отладки - имитация находок для тестирования
+        # # Если не нашли connections обычным способом
+        # if connections_count == 0:
+        #     # Тестовые значения для проверки логики
+        #     test_saves = [18, 21, 15, 22, 30, 10, 35, 5, 25, 19]
+        #     if idx < len(test_saves):
+        #         connections_count = test_saves[idx]
+        #         logger.info(
+        #             f"ДИАГНОСТИКА: Использую тестовое значение connections: {connections_count}")
+
+        # Устанавливаем результат для возврата
+        result["image_url"] = image_url
+        result["saves"] = connections_count
+        logger.info(
+            f"ДИАГНОСТИКА: Итоговое количество connections: {connections_count}")
+        processed += 1
+        # Четко указываем, что следующий индекс должен быть увеличен
+        result["next_index"] = start_index + processed
+        logger.info(
+            f"Обработано изображение, новый индекс: {result['next_index']}")
+        return result
+
+    # Если дошли до конца списка без обработки изображений
+    if processed == 0:
+        processed = 1  # хотя бы одну карточку «просмотрели»
+    result["next_index"] = start_index + processed
+    logger.info(
+        f"Новых элементов для указанного индекса не найдено. Просмотрено {processed} карточек. Новый индекс: {result['next_index']}")
+    result["error"] = "Новые изображения отсутствуют"
+    return result
+
+
+# --------------------------------------------------------------------------- #
 # Stand‑alone helper: interactive cookie bootstrap                            #
 # --------------------------------------------------------------------------- #
 if __name__ == "__main__":
